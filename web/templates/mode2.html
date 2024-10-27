@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="training-mode">
+    <!-- Верхние ряды для выбывших карт -->
+    <div class="known-cards-rows">
+        <div class="known-cards-row" id="known-row-1"></div>
+        <div class="known-cards-row" id="known-row-2"></div>
+    </div>
+
+    <!-- Игровая доска -->
+    <div class="game-board">
+        <!-- Пирамидальная таблица -->
+        <div class="pyramid-board">
+            <div class="front-row">
+                <div class="card-slot" data-position="front-1"></div>
+                <div class="card-slot" data-position="front-2"></div>
+                <div class="card-slot" data-position="front-3"></div>
+            </div>
+            <div class="mid-row">
+                <div class="card-slot" data-position="mid-1"></div>
+                <div class="card-slot" data-position="mid-2"></div>
+                <div class="card-slot" data-position="mid-3"></div>
+                <div class="card-slot" data-position="mid-4"></div>
+                <div class="card-slot" data-position="mid-5"></div>
+            </div>
+            <div class="back-row">
+                <div class="card-slot" data-position="back-1"></div>
+                <div class="card-slot" data-position="back-2"></div>
+                <div class="card-slot" data-position="back-3"></div>
+                <div class="card-slot" data-position="back-4"></div>
+                <div class="card-slot" data-position="back-5"></div>
+            </div>
+        </div>
+
+        <!-- Карточный селектор -->
+        <div class="card-selector">
+            <div class="ranks">
+                {% for rank in ['A','K','Q','J','10','9','8','7','6','5','4','3','2'] %}
+                <button class="rank-btn" data-rank="{{rank}}">{{rank}}</button>
+                {% endfor %}
+            </div>
+            <div class="suits">
+                {% for suit in ['♠','♥','♦','♣'] %}
+                <button class="suit-btn" data-suit="{{suit}}">{{suit}}</button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Нижний ряд для ввода карт -->
+    <div class="input-row">
+        {% for i in range(16) %}
+        <div class="card-slot" data-position="input-{{i}}"></div>
+        {% endfor %}
+    </div>
+
+    <!-- Контролы -->
+    <div class="controls">
+        <input type="number" id="time-limit" value="5" min="1" max="30">
+        <button id="distribute-btn">Распределить</button>
+    </div>
+</div>
+{% endblock %}
