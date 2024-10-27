@@ -1,0 +1,103 @@
+/* Общие стили */
+.card-slot {
+    width: 60px;
+    height: 90px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.card-slot.selected {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+}
+
+/* Стили для пирамидальной доски */
+.pyramid-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.front-row, .mid-row, .back-row {
+    display: flex;
+    gap: 5px;
+}
+
+/* Стили для селектора карт */
+.card-selector {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.ranks, .suits {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rank-btn, .suit-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Стили для строки ввода карт */
+.input-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+/* Стили для известных карт */
+.known-cards-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.known-cards-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Контролы */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#time-limit {
+    width: 60px;
+    padding: 5px;
+}
+
+#distribute-btn {
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#distribute-btn:hover {
+    background-color: #0056b3;
+}
