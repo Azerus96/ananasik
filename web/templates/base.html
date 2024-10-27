@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OFC Pineapple Poker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="{{ url_for('index') }}" class="nav-item">Home</a>
+            <a href="{{ url_for('mode1') }}" class="nav-item">AI vs AI Training</a>
+            <a href="{{ url_for('mode2') }}" class="nav-item">Training Mode</a>
+            <a href="{{ url_for('mode3') }}" class="nav-item">Play vs AI</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        {% if mode == 'index' %}
+            <div class="welcome-screen">
+                <h1>OFC Pineapple Poker</h1>
+                <div class="mode-descriptions">
+                    <div class="mode-card">
+                        <h2>Mode 1: AI Training</h2>
+                        <p>Watch three AI players compete and learn from each other. Download their progress.</p>
+                        <a href="{{ url_for('mode1') }}" class="mode-button">Start AI Training</a>
+                    </div>
+                    <div class="mode-card">
+                        <h2>Mode 2: Training Mode</h2>
+                        <p>Practice with AI assistance. Set time limits and get recommendations.</p>
+                        <a href="{{ url_for('mode2') }}" class="mode-button">Enter Training Mode</a>
+                    </div>
+                    <div class="mode-card">
+                        <h2>Mode 3: Play vs AI</h2>
+                        <p>Challenge 1-2 AI opponents in a real game.</p>
+                        <a href="{{ url_for('mode3') }}" class="mode-button">Play vs AI</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% block content %}{% endblock %}
+        {% endif %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    {% if mode == 'mode1' %}
+        <script src="{{ url_for('static', filename='js/mode1.js') }}"></script>
+    {% elif mode == 'mode2' %}
+        <script src="{{ url_for('static', filename='js/mode2.js') }}"></script>
+    {% elif mode == 'mode3' %}
+        <script src="{{ url_for('static', filename='js/mode3.js') }}"></script>
+    {% endif %}
+</body>
+</html>
