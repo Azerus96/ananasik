@@ -1,1 +1,6 @@
-
+deuces==0.2
+tensorflow>=0.9.0
+Keras>=1.0.5
+flask>=2.0.0
+flask-socketio>=5.0.0
+gunicorn>=20.0.4
