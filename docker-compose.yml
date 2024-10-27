@@ -5,3 +5,9 @@ services:
     ports:
       - "5000:5000"
     volumes:
+      - .:/app
+      - ./checkpoints:/app/checkpoints
+    environment:
+      - FLASK_APP=web/app.py
+      - FLASK_ENV=development
+      - PYTHONPATH=/app
