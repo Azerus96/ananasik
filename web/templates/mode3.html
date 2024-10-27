@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="human-vs-ai-mode">
+    <!-- Выбор количества ИИ противников -->
+    <div class="ai-selection">
+        <label>Number of AI players:</label>
+        <select id="ai-players-count">
+            <option value="1">1 AI</option>
+            <option value="2">2 AI</option>
+        </select>
+        <button id="start-game">Start Game</button>
+    </div>
+
+    <!-- Игровые доски -->
+    <div class="game-container">
+        <div class="player-board human-board">
+            <h3>Your Board</h3>
+            <div class="board-content">
+                <div class="front-row"></div>
+                <div class="mid-row"></div>
+                <div class="back-row"></div>
+            </div>
+        </div>
+
+        <div class="ai-boards">
+            {% for i in range(2) %}
+            <div class="player-board ai-board" id="ai-player-{{i}}" style="display: none;">
+                <h3>AI Player {{i+1}}</h3>
+                <div class="board-content">
+                    <div class="front-row"></div>
+                    <div class="mid-row"></div>
+                    <div class="back-row"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Карточный селектор (такой же как в режиме 2) -->
+        <div class="card-selector">
+            <div class="ranks">
+                {% for rank in ['A','K','Q','J','10','9','8','7','6','5','4','3','2'] %}
+                <button class="rank-btn" data-rank="{{rank}}">{{rank}}</button>
+                {% endfor %}
+            </div>
+            <div class="suits">
+                {% for suit in ['♠','♥','♦','♣'] %}
+                <button class="suit-btn" data-suit="{{suit}}">{{suit}}</button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
