@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="ai-vs-ai-mode">
+    <!-- Панель управления -->
+    <div class="control-panel">
+        <button id="start-training">Start Training</button>
+        <button id="pause-training">Pause</button>
+        <button id="download-progress">Download Progress</button>
+        <div class="stats">
+            <div>Games played: <span id="games-count">0</span></div>
+            <div>Win rate: <span id="win-rate">0%</span></div>
+        </div>
+    </div>
+
+    <!-- Игровые доски -->
+    <div class="boards-container">
+        {% for i in range(3) %}
+        <div class="player-board" id="ai-player-{{i}}">
+            <h3>AI Player {{i+1}}</h3>
+            <div class="board-content">
+                <div class="front-row"></div>
+                <div class="mid-row"></div>
+                <div class="back-row"></div>
+            </div>
+            <div class="score">Score: <span class="player-score">0</span></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
